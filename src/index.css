@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* VoltShare dark theme - navy/charcoal base with electric accents */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 40% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 44% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 189 94% 50%;       /* electric cyan */
+    --primary-foreground: 222 47% 6%;
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 28% 13%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 160 70% 42%;        /* energy green */
+    --accent-foreground: 222 47% 6%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 6%;
+    --border: 222 25% 16%;
+    --input: 222 25% 18%;
+    --ring: 189 94% 50%;
+    --chart-1: 189 94% 50%;
+    --chart-2: 160 70% 42%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+  }
+  body {
+    margin: 0;
+  }
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+
+/* Charging pulse animation */
+@keyframes charge-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 hsl(189 94% 50% / 0.5); }
+  50% { opacity: 0.85; transform: scale(1.03); box-shadow: 0 0 0 12px hsl(189 94% 50% / 0); }
+}
+.charge-pulse { animation: charge-pulse 1.8s ease-in-out infinite; }
+
+/* Energy flow animation for landing */
+@keyframes flow {
+  0% { stroke-dashoffset: 40; }
+  100% { stroke-dashoffset: 0; }
+}
+.energy-flow { stroke-dasharray: 8 4; animation: flow 1s linear infinite; }
+
+/* Soft gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, hsl(189 94% 55%), hsl(160 70% 45%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid glow background */
+.grid-glow {
+  background-image:
+    linear-gradient(hsl(189 94% 50% / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(189 94% 50% / 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.blink { animation: blink 1.4s ease-in-out infinite; }
