@@ -1,4 +1,6 @@
 # VoltShare
+## Check the Live demo
+https://voltshare-ev-chargin-g9yt.bolt.host
 
 **Smart EV charging measurement and payment platform.**
 
